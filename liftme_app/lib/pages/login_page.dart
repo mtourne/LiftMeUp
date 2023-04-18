@@ -5,17 +5,63 @@ import '../components/my_textfield.dart';
 import '../components/my_button.dart';
 
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
     LoginPage({super.key});
 
+    @override
+    State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
     // text editing controllers
     final usernameController = TextEditingController();
+
     final passwordController = TextEditingController();
 
     void signUserIn() async {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: usernameController.text,
-            password: passwordController.text,
+        // show loading indicator
+        showDialog(
+            context: context, 
+            builder: (context) {
+                return const Center( 
+                    child: CircularProgressIndicator(),
+                );
+            }
+        );
+
+        // try sign in
+        try {
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+                email: usernameController.text,
+                password: passwordController.text,
+            ); 
+             // pop the loading indicator
+            Navigator.pop(context);
+
+        } on FirebaseAuthException catch (e) {
+            // pop the loading indicator
+            Navigator.pop(context);
+
+            if (e.code == 'user-not-found') {
+                unableLogin("User not found");
+            } else if (e.code == 'wrong-password') {
+                unableLogin("Wrong password");
+            } else {
+                unableLogin("Unable to log in");
+            }
+        }  
+
+    }
+
+    // message popup
+    void unableLogin(String message) {
+        showDialog(
+            context: context, 
+            builder: (context) {
+                return AlertDialog(
+                    title: Text(message),
+                );
+            }
         );
     }
 
@@ -74,7 +120,7 @@ class LoginPage extends StatelessWidget {
                         // not a member? sign up
                     
                     ],
-                ),
+                ), 
             ),
         ),
         );

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 
+// from: https://www.youtube.com/watch?v=_3W-JuIVFlg
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
