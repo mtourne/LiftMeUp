@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../components/my_textfield.dart';
 import '../components/my_button.dart';
@@ -12,8 +12,12 @@ class LoginPage extends StatelessWidget {
     final usernameController = TextEditingController();
     final passwordController = TextEditingController();
 
-    // TODO (mtourne): sign user in
-    void signUserIn() {}
+    void signUserIn() async {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: usernameController.text,
+            password: passwordController.text,
+        );
+    }
 
     @override
     Widget build(BuildContext context) {

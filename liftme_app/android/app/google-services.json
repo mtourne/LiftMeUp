@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "380248683752",
+    "project_id": "liftmeup-1c7e2",
+    "storage_bucket": "liftmeup-1c7e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380248683752:android:3ee989a9970b5405a5055d",
+        "android_client_info": {
+          "package_name": "com.example.liftme_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380248683752-98ol2hvlc5qras7m44kavl54fjlc3cm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFi2Ich1-fgaIBH2FVR10wBbLtVgT6xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380248683752-98ol2hvlc5qras7m44kavl54fjlc3cm2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380248683752-7nnnbhk3il3aojlg50qhml45jek5ksul.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.liftmeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
